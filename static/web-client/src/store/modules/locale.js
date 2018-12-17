@@ -3,7 +3,7 @@ export default {
         en: {
             register: "Register",
             login: "Login",
-            highlight: "Hightlight text to start annotating",
+            highlight: "Highlight text to start annotating",
             reserved: "All Rights Reserved.",
             logout: "Logout",
             swipe: "swipe to navigate between sections",
