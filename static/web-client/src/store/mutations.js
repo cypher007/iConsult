@@ -15,5 +15,9 @@ export default {
 
     updateUser(state, user) {
         state.user = user;
+    },
+
+    updateLocale(state, locale) {
+        state.settings.locale = locale;
     }
 }

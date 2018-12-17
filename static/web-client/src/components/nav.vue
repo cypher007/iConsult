@@ -1,7 +1,7 @@
 <template>
-    <nav class="navbar is-fixed-top">
+<nav class="navbar is-fixed-top">
 
-      <div class="navbar-brand">
+    <div class="navbar-brand">
 
         <a class="navbar-item" href="/"><img src="@/assets/logo.png"></a>
 
@@ -11,9 +11,9 @@
           <span></span>
         </a>
 
-      </div>
+    </div>
 
-      <div id="navbarBasic" :class="['navbar-menu', menuVisible ? 'is-active' : null]">
+    <div id="navbarBasic" :class="['navbar-menu', menuVisible ? 'is-active' : null]">
 
         <div class="navbar-start">
 
@@ -22,36 +22,45 @@
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons" v-if="!$store.getters.loggedIn">
 
-              <router-link v-if="$route.path !== '/register/'" class="button is-primary" to="/register/">{{ $store.getters.i18n("register") }}</router-link>
-              <router-link v-if="$route.path !== '/login/'" class="button is-primary" :to="`/login/?next=${this.$route.path}`">{{ $store.getters.i18n("login") }}</router-link>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="#">Languages</a>
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item" @click.prevent="$store.commit('updateLocale', 'en')">English</a>
+                    <a class="navbar-item" @click.prevent="$store.commit('updateLocale', 'fr')">French</a>
+                </div>
+            </div>
 
+            <div class="navbar-item">
+                <div class="buttons" v-if="!$store.getters.loggedIn">
+
+                    <router-link v-if="$route.path !== '/register/'" class="button is-primary" to="/register/">{{ $store.getters.i18n("register") }}</router-link>
+                    <router-link v-if="$route.path !== '/login/'" class="button is-primary" :to="`/login/?next=${this.$route.path}`">{{ $store.getters.i18n("login") }}</router-link>
+
+                </div>
+                <div class="buttons" v-else>
+                    <router-link v-if="!$store.getters.socialUser" class="button is-primary" to="/profile/">Profile</router-link>
+                    <button class="button is-primary" to="/profile/" @click="logout">{{ $store.getters.i18n("logout") }}</button>
+                </div>
             </div>
-            <div class="buttons" v-else>
-              <router-link v-if="!$store.getters.socialUser" class="button is-primary" to="/profile/">Profile</router-link>
-              <button class="button is-primary" to="/profile/" @click="logout">{{ $store.getters.i18n("logout") }}</button>
-            </div>
-          </div>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
 </template>
 
 <script>
 export default {
     name: "i-nav",
     data() {
-      return {
-        menuVisible: false
-      }
+        return {
+            menuVisible: false
+        }
     },
     methods: {
-      logout() {
-        this.$store.commit("logout");
-        this.$router.replace("/");
-      }
+        logout() {
+            this.$store.commit("logout");
+            this.$router.replace("/");
+        }
     }
 }
 </script>
