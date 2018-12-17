@@ -9,6 +9,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.navbar-link:not(.is-arrowless)::after {
+  border-color: #414141 !important; }
+
 h1 {
   font-size: 3rem !important;
   font-weight: 900 !important; }
