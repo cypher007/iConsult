@@ -6,6 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,800" rel="stylesheet"> 
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+  <link rel="icon" href="/images/favicon.png" sizes="32x32"/>
   {{ $style := resources.Get "./style.sass" | resources.ToCSS }}
   <link rel="stylesheet" href="{{ $style.Permalink }}">
   <style>
