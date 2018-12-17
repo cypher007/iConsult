@@ -7,8 +7,8 @@
 
     <h1 class="is-size-1 has-text-centered has-text-weight-bold">{{ document.title }}</h1>
     <h6 class="is-size-6 has-text-centered has-text-weight-semibold">
-        <template v-if="isMobile">(swipe to navigate between sections)</template>
-        <template v-else>(Highlight text to start annotating)</template>
+        <template v-if="isMobile">({{ $store.getters.i18n("swipe") }})</template>
+        <template v-else>({{ $store.getters.i18n("highlight") }})</template>
     </h6>
 
     <template v-if="isMobile">

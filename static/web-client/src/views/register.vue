@@ -11,7 +11,7 @@
         <div class="column">
 
             <div class="has-text-centered">
-                <fb-signin-button :params="fbSigninParams" @success="fbLoginSuccess"><button class="button facebook"><span class="icon-facebook"></span>Continue With Facebook</button></fb-signin-button>
+                <fb-signin-button :params="fbSigninParams" @success="fbLoginSuccess"><button class="button facebook"><span class="icon-facebook"></span> {{ $store.getters.i18n("with_facebook") }}</button></fb-signin-button>
                 <google-sign-in-button @success="googleLoginSuccess" @error="googleLoginError" :client_id="googleClientId"/>
             </div>
 
@@ -21,9 +21,9 @@
             <form @submit.prevent="register">
 
                 <div class="field">
-                    <label class="label">Name</label>
+                    <label class="label">{{ $store.getters.i18n("name") }}</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" placeholder="Enter your name..." v-model="user.name">
+                        <input class="input" type="text" :placeholder="$store.getters.i18n('enter_name')" v-model="user.name">
                         <i class="icon is-small is-left icon-profile"></i>
                         <i v-if="!errors.name" class="icon is-small is-right icon-checkmark"></i>
                     </div>
@@ -31,9 +31,9 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Email</label>
+                    <label class="label">{{ $store.getters.i18n("email") }}</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Enter your email..." v-model="user.email">
+                        <input class="input" type="email" :placeholder="$store.getters.i18n('enter_email')" v-model="user.email">
                         <i class="icon is-small is-left icon-envelop"></i>
                         <i v-if="!errors.email"  class="icon is-small is-right icon-checkmark"></i>
                     </div>
@@ -41,9 +41,9 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Phone Number</label>
+                    <label class="label">{{ $store.getters.i18n('phone_number') }}</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" placeholder="Enter your phone number..." v-model="user.phone_number">
+                        <input class="input" type="text" :placeholder="$store.getters.i18n('enter_phone')" v-model="user.phone_number">
                         <i class="icon is-small is-left icon-mobile"></i>
                         <i class="icon is-small is-right icon-checkmark"></i>
                     </div>
@@ -51,9 +51,9 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Password</label>
+                    <label class="label">{{ $store.getters.i18n("password") }}</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="password" placeholder="Enter your password..." v-model="user.password">
+                        <input class="input" type="password" :placeholder="$store.getters.i18n('password')" v-model="user.password">
                         <i class="icon is-small is-left icon-key"></i>
                         <i v-if="!errors.password" class="icon is-small is-right icon-checkmark"></i>
                     </div>
@@ -64,7 +64,7 @@
 
                 <div class="has-text-right box is-shadowless">
 
-                    <button type="submit" class="button is-primary" :disabled="disabled || recaptchaUnverified">Register</button>
+                    <button type="submit" class="button is-primary" :disabled="disabled || recaptchaUnverified">{{ $store.getters.i18n("register") }}</button>
 
                 </div>
 
@@ -124,9 +124,9 @@ export default {
 
                 error = error.error;
 
-                if (error.details && error.details.codes.email) return this.errors.email = "Email already registered!";
+                if (error.details && error.details.codes.email) return this.errors.email = this.$store.getters.i18n("email_registered");
 
-                if (error.details && error.details.codes.phone_number) return this.errors.phone_number = "Phone number already registered!";
+                if (error.details && error.details.codes.phone_number) return this.errors.phone_number = this.$store.getters.i18n("phone_registered");
 
             }
 
@@ -143,27 +143,33 @@ export default {
                 let constraints = {
 
                     name: {
-                        presence: true,
+                        presence: {
+                            message: this.$store.getters.i18n("blank")
+                        },
                         length: {
                             minimum: 2,
                             maximum: 100,
-                            message: "Name must be 2 to 100 characters"
+                            message: this.$store.getters.i18n("name_length")
                         }
                     },
 
 					email: {
-						presence: true,
+                        presence: {
+                            message: this.$store.getters.i18n("blank")
+                        },
 						email: {
-							message: "Invalid email address"
+							message: this.$store.getters.i18n("invalid_email")
 						}
 					},
 
 					password: {
-						presence: true,
+                        presence: {
+                            message: this.$store.getters.i18n("blank")
+                        },
 						length: {
 							minimum: 8,
 							maximum: 512,
-							message: "Password must be 8 to 512 characters!"
+							message: this.$store.getters.i18n("invalid_password")
 						}
 					}
 

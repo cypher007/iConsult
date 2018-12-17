@@ -11,12 +11,12 @@
 
                 <form @submit.prevent="reset">
 
-                    <h2 class="is-size-2 has-text-centered">Enter Your New Password</h2>
+                    <h2 class="is-size-2 has-text-centered">{{ $store.getters.i18n("enter_new_password") }}</h2>
 
                     </br>
 
                     <div class="field">
-                        <label class="label">New Password</label>
+                        <label class="label">{{ $store.getters.i18n("new_password") }}</label>
                         <div class="control has-icons-left has-icons-right">
                             <input class="input" type="password" placeholder="Enter your new password..." v-model="user.newPassword">
                             <i class="icon is-small is-left icon-key"></i>
@@ -27,7 +27,7 @@
 
                     <div class="has-text-right">
 
-                        <button type="submit" class="button is-primary" :disabled="disabled">Save</button>
+                        <button type="submit" class="button is-primary" :disabled="disabled">{{ $store.getters.i18n("save") }}</button>
 
                     </div>
 
@@ -100,7 +100,7 @@ export default {
                         length: {
                             minimum: 8,
                             maximum: 512,
-                            message: "Password must be 8 to 512 characters!"
+                            message: this.$store.getters.i18n("invalid_password")
                         }
                     }
 

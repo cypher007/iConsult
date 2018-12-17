@@ -11,7 +11,7 @@
         <div class="column">
 
             <div class="has-text-centered">
-                <fb-signin-button :params="fbSigninParams" @success="fbLoginSuccess"><button class="button facebook"><span class="icon-facebook"></span>Continue With Facebook</button></fb-signin-button>
+                <fb-signin-button :params="fbSigninParams" @success="fbLoginSuccess"><button class="button facebook"><span class="icon-facebook"></span>{{ $store.getters.i18n("with_facebook") }}</button></fb-signin-button>
                 <google-sign-in-button @success="googleLoginSuccess" @error="googleLoginError" :client_id="googleClientId"/>
             </div>
 
@@ -21,9 +21,9 @@
             <form @submit.prevent="login">
 
                 <div class="field">
-                    <label class="label">Email</label>
+                    <label class="label">{{ $store.getters.i18n("login") }}</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Enter your email..." v-model="user.email">
+                        <input class="input" type="email" :placeholder="$store.getters.i18n('enter_email')" v-model="user.email">
                         <i class="icon is-small is-left icon-envelop"></i>
                         <i v-if="!errors.email"  class="icon is-small is-right icon-checkmark"></i>
                     </div>
@@ -31,9 +31,9 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Password</label>
+                    <label class="label">{{ $store.getters.i18n("password") }}</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="password" placeholder="Enter your password..." v-model="user.password">
+                        <input class="input" type="password" :placeholder="$store.getters.i18n('enter_password')" v-model="user.password">
                         <i class="icon is-small is-left icon-key"></i>
                         <i v-if="!errors.password" class="icon is-small is-right icon-checkmark"></i>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="field">
                     <div class="control">
                         <label class="checkbox">
-                            <input type="checkbox" v-model="rememberMe"> Remember Me
+                            <input type="checkbox" v-model="rememberMe"> {{ $store.getters.i18n("remember_me")}}
                         </label>
                     </div>
                 </div>
@@ -52,11 +52,11 @@
 
                 <br/>
 
-                <router-link to="/request-reset">Forgot Password?</router-link>
+                <router-link to="/request-reset">{{ $store.getters.i18n("forgot_password") }}</router-link>
 
                 <div class="has-text-right box is-shadowless">
 
-                    <button type="submit" class="button is-primary" :disabled="disabled || recaptchaUnverified">Login</button>
+                    <button type="submit" class="button is-primary" :disabled="disabled || recaptchaUnverified">{{ $store.getters.i18n("login") }}</button>
 
                 </div>
 
@@ -125,7 +125,7 @@ export default {
 
                 this.$refs.recaptcha.reset();
 
-                if (error.error.code === "LOGIN_FAILED") this.errors.email = "Invalid email or password!";
+                if (error.error.code === "LOGIN_FAILED") this.errors.email = this.$store.getters.i18n("invalid_email_or_password");
 
                 this.disabled = true;
 
@@ -146,18 +146,22 @@ export default {
                 let constraints = {
 
 					email: {
-						presence: true,
+						presence: {
+                            message: this.$store.getters.i18n("blank")
+                        },
 						email: {
-							message: "Invalid email address"
+							message: this.$store.getters.i18n("invalid_email")
 						}
 					},
 
 					password: {
-						presence: true,
+						presence: {
+                            message: this.$store.getters.i18n("blank")
+                        },
 						length: {
 							minimum: 8,
 							maximum: 512,
-							message: "Password must be 8 to 512 characters!"
+							message: this.$store.getters.i18n("invalid_password")
 						}
 					}
 

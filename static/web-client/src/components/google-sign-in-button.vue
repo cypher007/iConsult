@@ -1,5 +1,5 @@
 <template>
-    <button ref="button" class="button google"><img src="@/assets/google.svg"/> Continue With Google</button>
+    <button ref="button" class="button google"><img src="@/assets/google.svg"/> {{ $store.getters.i18n("with_google") }}</button>
 </template>
 
 <script>

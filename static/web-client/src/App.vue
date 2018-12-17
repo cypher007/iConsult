@@ -17,7 +17,7 @@
       </div>
 
       <div class="column has-text-right">
-        <h6>All Rights Reserved. 2018.</h6>
+        <h6>{{ $store.getters.i18n("reserved") }}</h6>
       </div>
       
     </footer>
