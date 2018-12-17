@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+<div class="hero is-fullheight-with-navbar">
+    
+    <div class="hero-body columns">
+        
+        <div class="column has-text-centered">
+            
+            <h2 class="is-size-2 has-text-weight-bold underline">{{ .Title }}</h2>
+            
+            <p class="is-size-5 box is-shadowless">{{ .Params.subtitle }}</p>
+            
+            <a href="/app/" class="button is-primary">{{ i18n "get_started" }}</a>
+            
+        </div>
+        
+        <div class="column is-desktop is-hidden-mobile has-text-centered">
+            <img src="/images/logo.png" height="400" width="400">
+        </div>
+        
+    </div>
+    
+    <figure class="hero-footer image">
+        <img src="/images/wave.svg">
+    </figure>
+    
+</div>
+
+<main class="box is-shadowless" id="overview">
+    
+    <h1 class="title has-text-centered"><span class="underline">{{ i18n "overview" }}</span></h1>
+    
+    <div class="columns box is-shadowless is-centered">
+
+        {{ range first 3 .Params.overview }}
+        
+        <div class="column has-text-centered is-one-quarter">
+            <span class="icon {{ .icon }} is-size-3"></span>
+            <h2 class="title">{{ .title }}</h2>
+            <p>{{ .description }}</p>
+        </div>
+
+        {{ end }}
+        
+    </div>
+    
+    <div class="columns box is-shadowless is-centered">
+
+        {{ range last 3 .Params.overview }}
+        
+        <div class="column has-text-centered is-one-quarter">
+            <span class="icon {{ .icon }} is-size-3"></span>
+            <h2 class="title">{{ .title }}</h2>
+            <p>{{ .description }}</p>
+        </div>
+
+        {{ end }}
+        
+    </div>
+    
+</main>
+
+<main class="box is-shadowless is-hidden-mobile" id="how">
+    
+    <h1 class="title has-text-centered"><span class="underline">{{ i18n "how" }}</span></h1>
+    
+    <div class="has-text-centered">
+        <img style="display: inline-block;" class="box is-paddingless" src="/images/how-to.gif"/>
+    </div>
+    
+</main>
+{{ end }}

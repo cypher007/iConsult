@@ -1,0 +1,7 @@
+{
+  "name": "i4policy-hugo",
+  "version": "1.0.0",
+  "dependencies": {
+    "bulma": "^0.7.2"
+  }
+}

@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+$body-family: "Poppins";
+$black: #000000;
+$primary: #414141;
+$footer-background-color: #212121;
+$pagination-current-background-color: $primary;
+$pagination-current-border-color: transparent;
+
+[class^="icon-"], [class*=" icon-"]
+    font-family: 'i4policy' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+h1
+  font-size: 3rem !important;
+  font-weight: 900 !important;
+
+h2
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+
+h3
+  font-size: 2rem !important;
+  font-weight: 500 !important;
+
+h4
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+
+h5
+  font-size: 1.25rem !important;
+  font-weight: 300 !important;
+
+h6
+  font-size: 1rem !important;
+  font-weight: 200 !important;
+
+p
+  padding: 1rem !important;
+
+ul, ol
+  padding: 2rem !important;
+
+.social a
+    margin: 0 1rem !important;
+
+.navbar-item img
+    max-height: 2.75rem !important;
+
+.underline
+  position: relative;
+
+.underline:before
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  bottom: -2px;
+  left: 25%;
+  border-bottom: 3px solid $primary;
+
+.icon-facebook:before
+    content: "\ea90";
+    color: $primary;
+
+.icon-twitter:before 
+    content: "\ea96";
+    color: $primary;
+
+.icon-youtube:before
+    content: "\ea9d";
+    color: $primary;
+
+.icon-pencil:before
+  content: "\e905";
+
+.icon-profile:before 
+  content: "\e923";
+
+.icon-envelop:before 
+  content: "\e945";
+
+.icon-mobile:before 
+  content: "\e958";
+
+.icon-key:before 
+  content: "\e98d";
+
+.icon-checkmark:before 
+  content: "\ea10";
+
+.icon-google:before
+  content: "\ea88";
+
+.icon-fingerprint:before 
+  content: "\e900";
+
+.icon-rate_review:before 
+  content: "\e901";
+
+.icon-stats-bars:before 
+  content: "\e99c";
+
+.icon-accessibility:before 
+  content: "\e9b2";
+
+.icon-bubbles:before 
+  content: "\e96d";
+
+.icon-document:before
+  content: "\e922";
+
+.icon-cross:before
+  content: "\ea0f";
+
+.icon-arrow-left:before
+  content: "\e902";
+
+.icon-arrow-right:before
+  content: "\e903";
+
+.footer
+    padding: 1rem 1.5rem !important;
+    margin: 0 !important;
+
+.navbar-menu.is-active
+  text-align: center;
+
+.navbar-menu.is-active .buttons
+  justify-content: center;
+    
+@import "node_modules/bulma/bulma.sass"

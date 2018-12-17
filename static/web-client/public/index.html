@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="has-navbar-fixed-top">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,800" rel="stylesheet"> 
+  <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
+  <script src="https://apis.google.com/js/platform.js"></script> 
+  <link rel="icon" href="/images/favicon.png" sizes="32x32"/>
+  <title>I4Policy Manifesto Tool</title>
+  <style>
+    
+    @font-face {
+      font-family: 'i4policy';
+      src:
+      url('/fonts/i4policy.ttf?jzefe9') format('truetype'),
+      url('/fonts/i4policy.woff?jzefe9') format('woff'),
+      url('/fonts/i4policy.svg?jzefe9#i4policy') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+  </style>
+</head>
+<body>
+  <noscript>
+    <strong>We're sorry but the I4policy Manifesto Tool doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=365505684198271&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div id="app"></div>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130093738-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'UA-130093738-1');
+  </script>
+  <!-- built files will be auto injected -->
+</body>
+</html>

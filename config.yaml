@@ -1,0 +1,30 @@
+baseURL: /
+defaultContentLanguage: en
+languages:
+    en:
+        title: I4Policy Manifesto Consultation Tool
+        params:
+            home: /
+            navbar:
+                - title: Home
+                  url: /
+                - title: Overview
+                  url: "#overview"
+                - title: How?
+                  url: "#how"
+                - title: Privacy Policy
+                  url: "/privacy-policy/"
+
+    fr:
+        title: Outil de consultation du manifeste I4Policy
+        params:
+            home: /fr/
+            navbar:
+                - title: Accueil
+                  url: /fr/
+                - title: Vue d'ensemble
+                  url: "/fr/#overview"
+                - title: Comment?
+                  url: "/fr/#how"
+                - title: Politique de confidentialité
+                  url: /fr/privacy-policy/
