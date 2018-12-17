@@ -11,7 +11,7 @@ export default new Vuex.Store({
     user: null,
     loading: false,
     settings: {
-      locale: "fr"
+      locale: "en"
     }
   },
   mutations: mutations,
