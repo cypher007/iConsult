@@ -170,7 +170,7 @@ export default {
                             where: where
                         }
                     });
-                    
+
                 }
 
                 this.document = await this.$store.dispatch("getObjects", {
@@ -268,6 +268,7 @@ export default {
         },
         lang(n) {
             this.currentId = this.documents[n].id;
+            this.ann.destroy();
             this.load();
         }
     }
