@@ -26,8 +26,8 @@
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="#">Languages</a>
                 <div class="navbar-dropdown is-boxed">
-                    <a class="navbar-item" @click.prevent="$store.commit('updateLocale', 'english')">English</a>
-                    <a class="navbar-item" @click.prevent="$store.commit('updateLocale', 'french')">French</a>
+                    <a class="navbar-item" @click.prevent="updateLocale('english')">English</a>
+                    <a class="navbar-item" @click.prevent="updateLocale('french')">French</a>
                 </div>
             </div>
 
@@ -60,6 +60,10 @@ export default {
         logout() {
             this.$store.commit("logout");
             this.$router.replace("/");
+        },
+        updateLocale(lang) {
+            this.$store.commit("updateLocale", lang);
+            localStorage.setItem("locale", lang);
         }
     }
 }
