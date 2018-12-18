@@ -7,7 +7,7 @@
     <i-nav/>
 
     <main class="main box is-shadowless">
-      <router-view :key="Math.random()"/>
+      <router-view/>
     </main>
 
     <footer class="footer columns">

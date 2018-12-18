@@ -11,14 +11,14 @@ export default new Vuex.Store({
     user: null,
     loading: false,
     settings: {
-      locale: "en"
+      locale: "english"
     }
   },
   mutations: mutations,
   actions: actions,
   getters: {
     loggedIn: (state) => state.user && state.user.auth_token !== null && state.user.auth_token !== undefined,
-    socialUser: (state) => state.user.facebookID && state.user.googleID && state.user.twitterID
+    socialUser: (state) => state.user && state.user.facebookID && state.user.googleID && state.user.twitterID
   },
   modules: {
     locale: locale

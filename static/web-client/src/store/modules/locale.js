@@ -1,6 +1,6 @@
 export default {
     state: {
-        en: {
+        english: {
             register: "Register",
             login: "Login",
             highlight: "Highlight text to start annotating",
@@ -34,7 +34,7 @@ export default {
             phone_registered: "Phone number already registered",
             name_length: "Name must be 2 to 100 characters"
         },
-        fr: {
+        french: {
             register: "Registre",
             login: "S'identifier",
             highlight: "Mettez en surbrillance le texte pour commencer à annoter",

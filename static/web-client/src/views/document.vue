@@ -101,7 +101,7 @@ export default {
             document: {
                 id: "5c0646c75277e02775050a42"
             },
-            stats: {},
+            documents: {},
             ann: new annotator.App()
         }
     },
@@ -128,52 +128,58 @@ export default {
                 let filter = {
                     include: [{
                         relation: "sections"
+                    }, {
+                        relation: "documents",
+                        scope: {
+                            fields: ["id", "language"]
+                        }
                     }]
                 };
-
-                if (this.$store.getters.loggedIn) {
-
-                    let where = {
-                        userId: this.$store.state.user.id
-                    };
-
-                    filter.include[0].scope = {
-                        include: [{
-                                relation: "comments",
-                                scope: {
-                                    where: where
-                                }
-                            },
-                            {
-                                relation: "ratings",
-                                scope: {
-                                    where: where
-                                }
-                            }
-                        ]
-                    };
-
-                    filter.include.push({
-                        relation: "documentRates",
-                        scope: {
-                            where: where
-                        }
-                    });
-
-                    filter.include.push({
-                        relation: "documentComments",
-                        scope: {
-                            where: where
-                        }
-                    });
-
-                }
 
                 this.document = await this.$store.dispatch("getObjects", {
                     path: `documents/${this.document.id}?filter=${JSON.stringify(filter)}`
                 });
 
+                this.document.documents.forEach(document => {
+                    this.documents[document.language] = document;
+                });
+
+                if (!this.documents[this.document.language]) this.documents[this.document.language] = this.document;
+
                 if (!this.$store.getters.loggedIn) return;
+                let where = {
+                    userId: this.$store.state.user.id
+                };
+
+                filter.include[0].scope = {
+                    include: [{
+                            relation: "comments",
+                            scope: {
+                                where: where
+                            }
+                        },
+                        {
+                            relation: "ratings",
+                            scope: {
+                                where: where
+                            }
+                        }
+                    ]
+                };
+
+                filter.include.push({
+                    relation: "documentRates",
+                    scope: {
+                        where: where
+                    }
+                });
+
+                filter.include.push({
+                    relation: "documentComments",
+                    scope: {
+                        where: where
+                    }
+                });
 
                 this.ann = new annotator.App();
 
@@ -240,11 +246,13 @@ export default {
         },
         isLoggedIn() {
             return this.$store.getters.loggedIn;
+        },
+        lang() {
+            return this.$store.state.settings.locale;
         }
     },
 
     async mounted() {
-        console.log("mounted");
         this.load();
     },
 
@@ -253,6 +261,10 @@ export default {
             if (!n) {
                 this.ann.destroy();
             }
+        },
+        lang(n) {
+            this.document.id = this.documents[n].id;
+            this.load();
         }
     }
 }
