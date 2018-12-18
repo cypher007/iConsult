@@ -98,9 +98,8 @@ export default {
     },
     data() {
         return {
-            document: {
-                id: "5c0646c75277e02775050a42"
-            },
+            document: {},
+            currentId: "5c0646c75277e02775050a42",
             documents: {},
             ann: new annotator.App()
         }
@@ -116,7 +115,7 @@ export default {
             return {
                 beforeAnnotationCreated(annotation) {
                     annotation.userId = that.$store.state.user.id;
-                    annotation.documentId = that.document.id;
+                    annotation.documentId = that.currentId;
                 }
             }
         },
@@ -136,8 +135,46 @@ export default {
                     }]
                 };
 
+                if (this.$store.getters.loggedIn) {
+
+                    let where = {
+                        userId: this.$store.state.user.id
+                    };
+
+                    filter.include[0].scope = {
+                        include: [{
+                                relation: "comments",
+                                scope: {
+                                    where: where
+                                }
+                            },
+                            {
+                                relation: "ratings",
+                                scope: {
+                                    where: where
+                                }
+                            }
+                        ]
+                    };
+
+                    filter.include.push({
+                        relation: "documentRates",
+                        scope: {
+                            where: where
+                        }
+                    });
+
+                    filter.include.push({
+                        relation: "documentComments",
+                        scope: {
+                            where: where
+                        }
+                    });
+                    
+                }
+
                 this.document = await this.$store.dispatch("getObjects", {
-                    path: `documents/${this.document.id}?filter=${JSON.stringify(filter)}`
+                    path: `documents/${this.currentId}?filter=${JSON.stringify(filter)}`
                 });
 
                 this.document.documents.forEach(document => {
@@ -147,39 +184,6 @@ export default {
                 if (!this.documents[this.document.language]) this.documents[this.document.language] = this.document;
 
                 if (!this.$store.getters.loggedIn) return;
-                let where = {
-                    userId: this.$store.state.user.id
-                };
-
-                filter.include[0].scope = {
-                    include: [{
-                            relation: "comments",
-                            scope: {
-                                where: where
-                            }
-                        },
-                        {
-                            relation: "ratings",
-                            scope: {
-                                where: where
-                            }
-                        }
-                    ]
-                };
-
-                filter.include.push({
-                    relation: "documentRates",
-                    scope: {
-                        where: where
-                    }
-                });
-
-                filter.include.push({
-                    relation: "documentComments",
-                    scope: {
-                        where: where
-                    }
-                });
 
                 this.ann = new annotator.App();
 
@@ -190,7 +194,7 @@ export default {
                 filter = {
                     where: {
                         userId: this.$store.state.user.id,
-                        documentId: this.document.id
+                        documentId: this.currentId
                     }
                 };
 
@@ -263,7 +267,7 @@ export default {
             }
         },
         lang(n) {
-            this.document.id = this.documents[n].id;
+            this.currentId = this.documents[n].id;
             this.load();
         }
     }
