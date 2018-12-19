@@ -8,7 +8,7 @@
     <form v-if="$store.getters.loggedIn" @submit.prevent="submitComment">
 
         <div class="field">
-            <label class="label">Please provide your comment</label>
+            <label class="label">{{ $store.getters.i18n("please_comment") }}</label>
             <div class="control">
                 <textarea v-model="comment.content" class="textarea"></textarea>
             </div>
@@ -16,7 +16,7 @@
 
         <div class="has-text-centered">
 
-            <button type="submit" class="button is-primary">Comment</button>
+            <button type="submit" class="button is-primary">{{ $store.getters.i18n("comment") }}</button>
 
         </div>
 

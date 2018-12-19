@@ -24,7 +24,7 @@
         <div class="navbar-end">
 
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="#">Languages</a>
+                <a class="navbar-link" href="#">{{ $store.getters.i18n("languages") }}</a>
                 <div class="navbar-dropdown is-boxed">
                     <a class="navbar-item" @click.prevent="updateLocale('english')">English</a>
                     <a class="navbar-item" @click.prevent="updateLocale('french')">French</a>

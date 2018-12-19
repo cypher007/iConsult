@@ -32,7 +32,14 @@ export default {
             phone_number: "Phone Number",
             email_registered: "Email already registered",
             phone_registered: "Phone number already registered",
-            name_length: "Name must be 2 to 100 characters"
+            name_length: "Name must be 2 to 100 characters",
+            languages: "Languages",
+            please_comment: "Please provide your comment",
+            comment: "Comment",
+            whole_document: "Please provide your comment for the whole document",
+            old_password: "Old Password",
+            change_password: "Change Password",
+            enter_old_password: "Enter your old password"
         },
         french: {
             register: "Registre",
@@ -66,7 +73,14 @@ export default {
             enter_phone: "Entrez votre numéro de téléphone...",
             email_registered: "Email déjà enregistré!",
             phone_registered: "Numéro de téléphone déjà enregistré!",
-            name_length: "Le nom doit comporter entre 2 et 100 caractères."
+            name_length: "Le nom doit comporter entre 2 et 100 caractères.",
+            languages: "les langues",
+            please_comment: "S'il vous plaît fournir votre commentaire?",
+            comment: "commentaire",
+            whole_document: "Merci de fournir votre commentaire pour l'ensemble du document",
+            old_password: "ancien mot de passe",
+            change_password: "Changer le mot de passe",
+            enter_old_password: "Entrez votre ancien mot de passe"
         }
     },
     getters: {
