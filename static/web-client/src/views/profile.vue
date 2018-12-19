@@ -116,11 +116,13 @@ export default {
                 let constraints = {
 
 					oldPassword: {
-						presence: true,
+						presence: {
+                            message: this.$store.getters.i18n("blank")
+                        },
 						length: {
 							minimum: 8,
 							maximum: 512,
-							message: "Password must be 8 to 512 characters!"
+							message: this.$store.getters.i18n("invalid_password")
 						}
 					},
 
@@ -129,11 +131,11 @@ export default {
 						length: {
 							minimum: 8,
 							maximum: 512,
-							message: "Password must be 8 to 512 characters!"
+							message: this.$store.getters.i18n("invalid_password")
                         },
                         equality: {
                             attribute: "oldPassword",
-                            message: "Old password and New password can't be the same",
+                            message: this.$store.getters.i18n("cant_be_same"),
                             comparator: (v1, v2) => v1 !== v2
                         }
 					}

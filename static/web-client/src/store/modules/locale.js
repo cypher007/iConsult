@@ -39,7 +39,8 @@ export default {
             whole_document: "Please provide your comment for the whole document",
             old_password: "Old Password",
             change_password: "Change Password",
-            enter_old_password: "Enter your old password"
+            enter_old_password: "Enter your old password",
+            cant_be_same: "Old password and New password can't be the same"
         },
         french: {
             register: "Registre",
@@ -80,7 +81,8 @@ export default {
             whole_document: "Merci de fournir votre commentaire pour l'ensemble du document",
             old_password: "ancien mot de passe",
             change_password: "Changer le mot de passe",
-            enter_old_password: "Entrez votre ancien mot de passe"
+            enter_old_password: "Entrez votre ancien mot de passe",
+            cant_be_same: "Ancien mot de passe et Nouveau mot de passe ne peuvent pas être les mêmes"
         }
     },
     getters: {
