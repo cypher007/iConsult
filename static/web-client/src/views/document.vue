@@ -68,7 +68,7 @@
     </template>
 
     <document-com-rate :document="document" :comment="document.documentComments ? document.documentComments[0] : undefined" :rating="document.documentRates ? document.documentRates[0] : undefined" v-if="$store.getters.loggedIn"></document-com-rate>
-
+    <div id="disqus_thread"></div>
 </div>
 </template>
 
@@ -118,6 +118,21 @@ export default {
                     annotation.documentId = that.currentId;
                 }
             }
+        },
+
+        disqus() {
+
+            var disqus_config = function () {
+                this.page.url = this.$route.path;
+                this.page.identifier = this.$route.params.id;
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://i4policy.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
         },
 
         async load() {
@@ -182,6 +197,8 @@ export default {
                 });
 
                 if (!this.documents[this.document.language]) this.documents[this.document.language] = this.document;
+
+                this.disqus();
 
                 if (!this.$store.getters.loggedIn) return;
 
