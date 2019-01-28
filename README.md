@@ -43,7 +43,7 @@ The tool allows a logged-in-user to provide a rating on the document sections as
 
 3. i4Policy Consultation Facebook Chat Bot
 
-The chat bot serves as an extension of the consultation tool built to increase accessibility of the tool, allow users to register using their Facebook messenger id and start their consultation via a conversation with the bot. The bot collects rates, reviews and comments from users who have signed up using their Facebook account if now requires a Facebook authentication.
+The chat bot serves as an extension of the consultation tool built to increase accessibility of the tool, allow users to register using their Facebook messenger id and start their consultation via a conversation with the bot. The bot collects ratings, reviews and comments from users.
 
 
 
