@@ -31,7 +31,7 @@ Using the Admin Panel, the moderator can also manage users that signed up for th
 
 
 
-2. i4Policy consultation tool
+2. iConsult Tool (End-User)
 
 This component of the tool is complete with a landing page and an authentication module that allows the user to sign-up directly or for frictionless access using other social media accounts. It has a dynamic localization module which allow any developer to translate the key words into a language of their choosing using a single translation spread sheet. Currently the tool is offered in English and French.
 
@@ -41,9 +41,9 @@ The tool allows a logged-in-user to provide a rating on the document sections as
 
 
 
-3. i4Policy Consultation Facebook Chat Bot
+3. iConsult Chat Bot
 
-The chat bot serves as an extension of the consultation tool built to increase accessibility of the tool, allow users to register using their Facebook messenger id and start their consultation via a conversation with the bot. The bot collects ratings, reviews and comments from users.
+The chat bot serves as an extension of the consultation tool built to increase accessibility of the tool--particularly in low-bandwidth contexts and where a critical number of internet users access the internet in limited, messenger-only contexts--allow users to register using their messenger id (in v2.1 this includes only Facebook) and start their consultation via a conversation with the bot. The bot collects ratings, reviews and comments from users.
 
 
 
