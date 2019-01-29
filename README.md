@@ -15,7 +15,7 @@ Source: Images are examples from a live deployment of the current version of the
 
 
 
-1. i4Policy Admin Panel
+1. iConsult Admin Panel
 
 This sub component of the consultation tool allows the administrator to compose and submit a draft document broken down into sections which contain a set of paragraphs which can be rated and/or annotated. 
 
