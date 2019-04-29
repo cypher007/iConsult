@@ -64,11 +64,9 @@ The chat bot serves as an extension of the consultation tool built to increase a
 <br>
 
 ## How to build
-```
 1. Clone this repository
 2. `cd iConsult`
 3. `make build`
-```
 
 ## Acknowledgements
 
