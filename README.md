@@ -61,6 +61,7 @@ The Admin Panel for iConsult allows the administrator to keep track of responses
 
 The chat bot serves as an extension of the consultation tool built to increase accessibility, particularly in low-bandwidth contexts and where a critical number of internet users access the internet in limited, messenger-only contexts. The chatbot allows users to register with their messenger id (in v2.1 this includes only Facebook) and start their consultation via a conversation with the bot. The bot collects ratings, reviews and comments from users.
 <br>
+<br>
 
 ## How to build
 ```
