@@ -70,4 +70,4 @@ The chat bot serves as an extension of the consultation tool built to increase a
 
 The iConsult tool was developed with funding from Open Society in West Africa (OSIWA). An earlier version of the tool was deployed for the Office of ICT, Innovation and Entrepreneurship (OIIE), of the National Information Technology Development Authority of the Nigerian Government (NITDA), to consult on a national policy vision (the Nigerian ICT Innovation and Entrepreneurship Vision, NIIEV) with support from the Make-IT in Africa project of the German Development Cooperation (GIZ). The World Bank has provided further support for the refinement of the tool in the context of policy support for innovation and entrepreneurship policy in the WAEMU sub-region.
 
-AhadooTec, an Ethiopian software development firm, has led the technical development of these i4Policy tools: https://www.ahadootec.com/ 
+[AhadooTec](https://www.ahadootec.com/), an Ethiopian software development firm, has led the technical development of these i4Policy tools.
