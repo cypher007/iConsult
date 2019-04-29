@@ -43,7 +43,6 @@ Users can **Annotate** text
 And, users can have a **Discussion** via their preferred social media platform
 ![image](https://user-images.githubusercontent.com/43605024/56871543-b7b2f580-6a1f-11e9-9eda-690f076bed30.png)
 <br>
-<br>
 
 ### 2. iConsult Admin Panel
 
@@ -54,7 +53,6 @@ This sub component of the consultation tool allows the administrator to compose 
 
 The Admin Panel for iConsult allows the administrator to keep track of responses gathered from users individually for detailed user feedback analysis without revealing the identity of the consulting individual. The component also provides an insight dashboard on live consultations using selected performance indicators.
  ![](https://i.ibb.co/2Mp3Nvj/3.png)
-<br>
 <br>
 
 ### 3. iConsult Chat Bot
